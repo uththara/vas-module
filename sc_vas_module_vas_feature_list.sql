@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.20, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: localhost    Database: user_module
+-- Host: localhost    Database: sc_vas_module
 -- ------------------------------------------------------
--- Server version	5.7.20-0ubuntu0.16.04.1
+-- Server version	5.7.20-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,28 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `person`
+-- Table structure for table `vas_feature_list`
 --
 
-DROP TABLE IF EXISTS `person`;
+DROP TABLE IF EXISTS `vas_feature_list`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `person` (
+CREATE TABLE `vas_feature_list` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(45) DEFAULT NULL,
-  `last_name` varchar(45) DEFAULT NULL,
+  `vas_code` varchar(45) DEFAULT NULL,
+  `description` varchar(100) DEFAULT NULL,
+  `status` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `person`
+-- Dumping data for table `vas_feature_list`
 --
 
-LOCK TABLES `person` WRITE;
-/*!40000 ALTER TABLE `person` DISABLE KEYS */;
-INSERT INTO `person` VALUES (1,'Charith','Bhagya');
-/*!40000 ALTER TABLE `person` ENABLE KEYS */;
+LOCK TABLES `vas_feature_list` WRITE;
+/*!40000 ALTER TABLE `vas_feature_list` DISABLE KEYS */;
+INSERT INTO `vas_feature_list` VALUES (1,'DUSA','Daily Usage SMS Alert','ACTIVE'),(2,'MMS','MMS Settings','ACTIVE'),(3,'GPRS','GPRS Settings','ACTIVE'),(4,'MCA','Miss Call Alerts','ACTIVE'),(5,'EBILL','E-bill','ACTIVE'),(6,'BR','Budget Roaming','ACTIVE'),(7,'DFR','Deposite Free Roaming','ACTIVE'),(8,'SMSR','SMS Roaming','ACTIVE'),(9,'NAS','News Alerts','ACTIVE');
+/*!40000 ALTER TABLE `vas_feature_list` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-10-30 12:34:08
+-- Dump completed on 2017-11-02 10:33:59
