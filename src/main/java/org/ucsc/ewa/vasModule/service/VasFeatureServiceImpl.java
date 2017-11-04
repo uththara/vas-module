@@ -59,7 +59,6 @@ public class VasFeatureServiceImpl implements VasFeatureService {
                 tempList.add(vas);
             }
         }
-        System.out.println("tempList:"+tempList.size());
         return tempList;
     }
     
