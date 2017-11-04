@@ -12,7 +12,7 @@ import org.ucsc.ewa.vasModule.model.VasActivation;
 public interface VasFeatureRepository extends JpaRepository<VasFeature, Long> {
     
     @Query("select v from VasFeature v where v.status = ?1")
-    List<VasFeature> findAll(String status);
+    List<VasFeature> findAll(Boolean status);
     
     @Query("select v from VasFeature v where v.status = ?1")
     List<VasActivation> findAllFeaturesByMobileNo(String mobileNo);

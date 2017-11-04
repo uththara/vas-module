@@ -28,7 +28,7 @@ public class VasFeatureServiceImpl implements VasFeatureService {
     }
     
     @Override
-    public List<VasFeature> findAll(String status) {
+    public List<VasFeature> findAll(Boolean status) {
 
         List<VasFeature> list = personRepository.findAll(status);
         return list;
@@ -38,7 +38,7 @@ public class VasFeatureServiceImpl implements VasFeatureService {
     public List<VasActivation> findAllFeaturesByMobileNo(String mobileNo) {
 
         List<VasActivation> list = vasCusRepository.findAllFeaturesByMobileNo(mobileNo);
-        List<VasFeature> featureList = personRepository.findAll("ACTIVE");
+        List<VasFeature> featureList = personRepository.findAll(true);
         
         List<VasActivation> tempList = new ArrayList<VasActivation>();
         boolean hasFeature = false;
@@ -55,7 +55,7 @@ public class VasFeatureServiceImpl implements VasFeatureService {
                 VasActivation vas = new VasActivation();
                 vas.setFeatureCode(featureList.get(i).getVasCode());
                 vas.setMobileNo(mobileNo);
-                vas.setStatus("DEACTIVE");
+                vas.setStatus(false);
                 tempList.add(vas);
             }
         }
@@ -71,9 +71,9 @@ public class VasFeatureServiceImpl implements VasFeatureService {
     @Override
     public int deactivateService(String mobileNo, String vasCode){
         int update = 0;
-        VasActivation vasActObj = vasCusRepository.findFeatureByVasCode(mobileNo,vasCode,"ACTIVE");
+        VasActivation vasActObj = vasCusRepository.findFeatureByVasCode(mobileNo,vasCode, true);
         if(vasActObj != null){
-            vasActObj.setStatus("DEACTIVE");
+            vasActObj.setStatus(false);
             vasActObj.setTerminateDate(new Date());
             vasCusRepository.save(vasActObj);
             update = 1;
