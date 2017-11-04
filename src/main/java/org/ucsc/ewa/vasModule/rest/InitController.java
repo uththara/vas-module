@@ -50,7 +50,7 @@ public class InitController {
         vas.setStatus(true);
         vas.setActivateDate(new Date());
         personService.activateService(vas);
-        return "Successfully Activated";
+        return "{\"status\": \"Successfully Activated\"}";
         
     }
     
@@ -59,9 +59,9 @@ public class InitController {
 
         int a = personService.deactivateService(mobileNo, vasCode);
         if(a>0){
-            return "Successfully Deactivated";
+            return "{\"status\": \"Successfully Deactivated\"}";
         }else{
-            return "Error Occured";
+            return "{\"status\": \"Error Occured\"}";
         }               
     }
 }
