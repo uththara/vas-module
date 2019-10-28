@@ -32,7 +32,7 @@ public class InitController {
     @RequestMapping(value = "getAllFeatureList", method = RequestMethod.GET)
     public List<VasFeature> getAllVasFeatures() {
 
-        return personService.findAll("ACTIVE");
+        return personService.findAll(true);
     }
     
     @RequestMapping(value = "getVasDetails/{mobileNo}", method = RequestMethod.GET)
@@ -47,10 +47,10 @@ public class InitController {
         VasActivation vas = new VasActivation();
         vas.setMobileNo(mobileNo);
         vas.setFeatureCode(vasCode);
-        vas.setStatus("ACTIVE");
+        vas.setStatus(true);
         vas.setActivateDate(new Date());
         personService.activateService(vas);
-        return "Successfully Activated";
+        return "{\"status\": \"Successfully Activated\"}";
         
     }
     
@@ -59,9 +59,9 @@ public class InitController {
 
         int a = personService.deactivateService(mobileNo, vasCode);
         if(a>0){
-            return "Successfully Deactivated";
+            return "{\"status\": \"Successfully Deactivated\"}";
         }else{
-            return "Error Occured";
+            return "{\"status\": \"Error Occured\"}";
         }               
     }
 }

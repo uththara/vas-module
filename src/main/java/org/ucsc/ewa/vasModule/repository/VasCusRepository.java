@@ -16,11 +16,11 @@ import org.ucsc.ewa.vasModule.model.VasActivation;
 public interface VasCusRepository extends CrudRepository<VasActivation, Long>{
 
     
-    @Query("select v from VasActivation v where v.mobileNo = ?1 and v.status='ACTIVE'")
+    @Query("select v from VasActivation v where v.mobileNo = ?1")
     List<VasActivation> findAllFeaturesByMobileNo(String mobileNo);
     
     @Query("select v from VasActivation v where v.mobileNo = ?1 and v.featureCode =?2 and v.status=?3")
-    public VasActivation findFeatureByVasCode(String mobileNo, String vasCode, String activE);
+    public VasActivation findFeatureByVasCode(String mobileNo, String vasCode, Boolean activE);
 
    
 }

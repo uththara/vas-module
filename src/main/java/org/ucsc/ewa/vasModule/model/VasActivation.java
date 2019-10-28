@@ -26,7 +26,7 @@ public class VasActivation extends BaseEntity{
     private String featureCode;
     
     @Column(name = "status")
-    private String status;
+    private Boolean status;
     
     @Column(name = "activate_date")
     @Temporal(javax.persistence.TemporalType.DATE)
@@ -52,11 +52,11 @@ public class VasActivation extends BaseEntity{
         this.featureCode = featureCode;
     }
 
-    public String getStatus() {
+    public Boolean getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Boolean status) {
         this.status = status;
     }
 

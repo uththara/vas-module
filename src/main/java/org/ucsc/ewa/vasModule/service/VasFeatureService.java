@@ -9,7 +9,7 @@ public interface VasFeatureService {
 
     VasFeature findOneById(Long id);
     
-    List<VasFeature> findAll(String status);
+    List<VasFeature> findAll(Boolean status);
 
     List<VasActivation> findAllFeaturesByMobileNo(String mobileNo);
     
